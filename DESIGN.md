@@ -12,31 +12,31 @@ PixText follows an Apple-inspired design philosophy: minimalist, premium, clean,
 
 Used for backgrounds, borders, text, and neutral UI elements.
 
-| Name | Hex | Use Case |
-|------|-----|----------|
-| Gray-50 | #F9FAFB | Lightest background, secondary surfaces |
-| Gray-100 | #F3F4F6 | Light background, hover states |
-| Gray-200 | #E5E7EB | Subtle borders, dividers |
-| Gray-300 | #D1D5DB | Standard borders |
-| Gray-400 | #9CA3AF | Disabled text, muted elements |
-| Gray-500 | #6B7280 | Default body text, secondary content |
-| Gray-600 | #4B5563 | Stronger text, labels |
-| Gray-700 | #374151 | Headings, strong emphasis |
-| Gray-800 | #1F2937 | Dark text, high contrast |
-| Gray-900 | #111827 | Darkest text, maximum contrast |
+| Name     | Hex     | Use Case                                |
+| -------- | ------- | --------------------------------------- |
+| Gray-50  | #F9FAFB | Lightest background, secondary surfaces |
+| Gray-100 | #F3F4F6 | Light background, hover states          |
+| Gray-200 | #E5E7EB | Subtle borders, dividers                |
+| Gray-300 | #D1D5DB | Standard borders                        |
+| Gray-400 | #9CA3AF | Disabled text, muted elements           |
+| Gray-500 | #6B7280 | Default body text, secondary content    |
+| Gray-600 | #4B5563 | Stronger text, labels                   |
+| Gray-700 | #374151 | Headings, strong emphasis               |
+| Gray-800 | #1F2937 | Dark text, high contrast                |
+| Gray-900 | #111827 | Darkest text, maximum contrast          |
 
 ### Accent Color (Teal)
 
 Primary action color, links, and interactive states.
 
-| Name | Hex | Use Case |
-|------|-----|----------|
-| Teal-50 | #F0FDFA | Background hover for teal elements |
-| Teal-100 | #CCFBF1 | Light background for teal sections |
-| Teal-200 | #99F6E4 | Teal background (secondary use) |
+| Name     | Hex     | Use Case                             |
+| -------- | ------- | ------------------------------------ |
+| Teal-50  | #F0FDFA | Background hover for teal elements   |
+| Teal-100 | #CCFBF1 | Light background for teal sections   |
+| Teal-200 | #99F6E4 | Teal background (secondary use)      |
 | Teal-500 | #14B8A6 | Primary buttons, links, focus states |
-| Teal-600 | #0D9488 | Button hover, active states |
-| Teal-700 | #0F766E | Pressed/focused states |
+| Teal-600 | #0D9488 | Button hover, active states          |
+| Teal-700 | #0F766E | Pressed/focused states               |
 
 ### Special Colors
 
@@ -59,17 +59,17 @@ Primary action color, links, and interactive states.
 
 Consistent sizing maintains visual hierarchy and readability.
 
-| Role | Size | Weight | Line Height | Letter Spacing |
-|------|------|--------|-------------|-----------------|
-| Heading XL | 2.5rem (40px) | 700 | 3rem | -0.5px |
-| Heading Large | 2rem (32px) | 700 | 2.5rem | -0.5px |
-| Heading Medium | 1.5rem (24px) | 600 | 2rem | -0.25px |
-| Heading Small | 1.25rem (20px) | 600 | 1.75rem | 0px |
-| Body Large | 1.125rem (18px) | 400 | 1.75rem | 0px |
-| Body Medium | 1rem (16px) | 400 | 1.5rem | 0px |
-| Body Small | 0.875rem (14px) | 400 | 1.25rem | 0px |
-| Label | 0.75rem (12px) | 500 | 1rem | 0.5px |
-| Monospace (code) | 0.875rem (14px) | 400 | 1.5rem | 0px |
+| Role             | Size            | Weight | Line Height | Letter Spacing |
+| ---------------- | --------------- | ------ | ----------- | -------------- |
+| Heading XL       | 2.5rem (40px)   | 700    | 3rem        | -0.5px         |
+| Heading Large    | 2rem (32px)     | 700    | 2.5rem      | -0.5px         |
+| Heading Medium   | 1.5rem (24px)   | 600    | 2rem        | -0.25px        |
+| Heading Small    | 1.25rem (20px)  | 600    | 1.75rem     | 0px            |
+| Body Large       | 1.125rem (18px) | 400    | 1.75rem     | 0px            |
+| Body Medium      | 1rem (16px)     | 400    | 1.5rem      | 0px            |
+| Body Small       | 0.875rem (14px) | 400    | 1.25rem     | 0px            |
+| Label            | 0.75rem (12px)  | 500    | 1rem        | 0.5px          |
+| Monospace (code) | 0.875rem (14px) | 400    | 1.5rem      | 0px            |
 
 ### Usage
 
@@ -84,15 +84,15 @@ Consistent sizing maintains visual hierarchy and readability.
 
 Consistent spacing creates visual rhythm and predictability.
 
-| Token | Value | Common Uses |
-|-------|-------|-------------|
-| xs | 0.25rem (4px) | Micro-spacing, icon gaps |
-| sm | 0.5rem (8px) | Padding in small elements, tight spacing |
-| md | 1rem (16px) | Standard padding, spacing between elements |
-| lg | 1.5rem (24px) | Larger padding, spacing sections |
-| xl | 2rem (32px) | Major spacing, container padding |
-| 2xl | 3rem (48px) | Large section gaps |
-| 3xl | 4rem (64px) | Page-level spacing |
+| Token | Value         | Common Uses                                |
+| ----- | ------------- | ------------------------------------------ |
+| xs    | 0.25rem (4px) | Micro-spacing, icon gaps                   |
+| sm    | 0.5rem (8px)  | Padding in small elements, tight spacing   |
+| md    | 1rem (16px)   | Standard padding, spacing between elements |
+| lg    | 1.5rem (24px) | Larger padding, spacing sections           |
+| xl    | 2rem (32px)   | Major spacing, container padding           |
+| 2xl   | 3rem (48px)   | Large section gaps                         |
+| 3xl   | 4rem (64px)   | Page-level spacing                         |
 
 ### Application
 
@@ -107,13 +107,13 @@ Consistent spacing creates visual rhythm and predictability.
 
 Rounded corners soften interfaces while maintaining clarity.
 
-| Token | Value | Use Case |
-|-------|-------|----------|
-| sm | 0.375rem (6px) | Small elements, badges |
-| md | 0.5rem (8px) | Standard borders, form inputs |
-| lg | 0.75rem (12px) | Cards, buttons |
-| xl | 1rem (16px) | Larger cards, modals |
-| 2xl | 1.5rem (24px) | Extra-large elements |
+| Token | Value          | Use Case                      |
+| ----- | -------------- | ----------------------------- |
+| sm    | 0.375rem (6px) | Small elements, badges        |
+| md    | 0.5rem (8px)   | Standard borders, form inputs |
+| lg    | 0.75rem (12px) | Cards, buttons                |
+| xl    | 1rem (16px)    | Larger cards, modals          |
+| 2xl   | 1.5rem (24px)  | Extra-large elements          |
 
 ---
 
@@ -121,12 +121,12 @@ Rounded corners soften interfaces while maintaining clarity.
 
 Shadows create depth and visual hierarchy. Use sparingly.
 
-| Token | Value | Use Case |
-|-------|-------|----------|
-| sm | 0 1px 2px 0 rgba(0, 0, 0, 0.05) | Subtle elevation, hover states |
-| md | 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) | Cards, standard elevation |
-| lg | 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) | Dropdowns, modals |
-| xl | 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) | Floating elements, overlays |
+| Token | Value                                                                     | Use Case                       |
+| ----- | ------------------------------------------------------------------------- | ------------------------------ |
+| sm    | 0 1px 2px 0 rgba(0, 0, 0, 0.05)                                           | Subtle elevation, hover states |
+| md    | 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)     | Cards, standard elevation      |
+| lg    | 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)   | Dropdowns, modals              |
+| xl    | 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) | Floating elements, overlays    |
 
 ---
 

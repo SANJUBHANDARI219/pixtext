@@ -9,12 +9,15 @@
 ## 1. Intent and Why
 
 ### The Problem
+
 Users of Claude, ChatGPT, Gemini, and other AI models hit token limits quickly when sharing large text contexts. Token costs scale linearly with text length, and monthly allowances are finite.
 
 ### The Solution
+
 PixText converts written text into compact, machine-readable PNG images. When processed directly by multimodal AI models, images consume fewer tokens than equivalent raw text, extending a user's effective context window and monthly budget.
 
 ### Success Metric
+
 Primary metric: **User activity volume**—words processed per account monthly, tracked against subscription plan limits. Secondary: retention rate, plan upgrades, and PayPal payment success rate.
 
 ---
@@ -22,6 +25,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 ## 2. Goals, Non-Goals, Anti-Goals
 
 ### Goals
+
 - Allow authenticated users to convert text to dense PNG images
 - Support automatic multi-page splitting for very long text
 - Provide a searchable, filterable conversion history
@@ -32,6 +36,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Deliver a cohesive, Apple-inspired design across all surfaces
 
 ### Non-Goals
+
 - Claim token savings are guaranteed (depends on destination AI model and its image-processing rules)
 - Build a desktop or mobile-native app (web-first)
 - Support OCR or text-extraction from images (images are read-only tokens)
@@ -40,6 +45,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Build a public marketplace or third-party integrations
 
 ### Anti-Goals
+
 - Never expose API keys or passwords in frontend code
 - Never silently truncate user text
 - Never allow users to access other users' conversions or storage
@@ -51,6 +57,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 ## 3. Scope and Feature List
 
 ### 3.1 Public Website (Marketing)
+
 - **Home / Landing page** – hero section with CTA, interactive demo (text input → image preview)
 - **Features page** – key value props, supported platforms, use cases
 - **How It Works page** – visual walkthrough of conversion process
@@ -62,6 +69,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - **Login / Sign Up / Forgot Password** – auth entry points
 
 ### 3.2 Authentication & Registration
+
 - **Sign-up form** – First Name, Last Name, Date of Birth (18+ validation), Email, Password, Confirm Password, CAPTCHA (Cloudflare Turnstile), Terms acceptance
 - **Password requirements** – Min 12 chars, 1 uppercase, 1 lowercase, 1 number, 1 special char
 - **Email verification** – Supabase Auth email confirmation
@@ -70,11 +78,13 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - **Server-side age validation** – Reject users under 18 at registration
 
 ### 3.3 User Dashboard
+
 - **Sidebar navigation** – Overview, Paste Words, My History, Subscription, Usage Statistics, Account Settings, Help & Support, Logout
 - **Overview tab** – Welcome message, current plan, images generated this month, monthly limit, words processed, remaining quota, recent conversions, renewal date
 - **Paste Words tab** – Large text input area ("Write some words..."), word/character counter, clear button, send button
 
 ### 3.4 Core Feature: Text-to-Image Conversion
+
 - **Image generation** – Render text using 12px monospaced font, maximize characters per line, no padding/margins/borders/watermarks
 - **Multi-page splitting** – Automatically split into sequential numbered PNGs if text exceeds safe canvas dimensions
 - **Image preview** – Display generated image(s), show dimensions, word count, file size, font size
@@ -85,6 +95,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - **Loading state** – Spinner/skeleton while generating
 
 ### 3.5 Conversion History
+
 - **History page** – Searchable, filterable list of all user conversions
 - **Per-record fields** – Conversion ID, original text preview, word count, image dimensions, file size, creation date/time
 - **Per-record actions** – View Image, Download Image, Copy Original Text, Delete Image, Delete Record
@@ -93,6 +104,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - **Storage security** – Private Supabase Storage buckets, signed download URLs
 
 ### 3.6 Embedded AI Playground (Test Image Feature)
+
 - **Scope** – Sandboxed iframe allowing users to temporarily paste API key (Claude or ChatGPT) and test image readability
 - **Free tier** – 1 lifetime test use
 - **Paid tiers** – Unlimited tests
@@ -103,30 +115,34 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 
 #### Plans (EUR, monthly)
 
-| Plan | Price | Images/Month | Max Words/Image | Features |
-|------|-------|-------------|-----------------|----------|
-| **Free** | €0 | 5 | 10,000 | Conversion history, PNG download, 1 lifetime test |
-| **Starter** | €3 | 15 | 25,000 | All Free + priority processing |
-| **Pro** | €8 | 50 | 50,000 | All Starter + advanced usage stats, faster support |
-| **Business** | €18 | 100 | 90,000 | All Pro + premium support |
+| Plan         | Price | Images/Month | Max Words/Image | Features                                           |
+| ------------ | ----- | ------------ | --------------- | -------------------------------------------------- |
+| **Free**     | €0    | 5            | 10,000          | Conversion history, PNG download, 1 lifetime test  |
+| **Starter**  | €3    | 15           | 25,000          | All Free + priority processing                     |
+| **Pro**      | €8    | 50           | 50,000          | All Starter + advanced usage stats, faster support |
+| **Business** | €18   | 100          | 90,000          | All Pro + premium support                          |
 
 #### Annual/Multi-Year Discounts
+
 - 1 Year: 5% discount
 - 2 Years: 8% discount
 - 4 Years: 10% discount
 
 **Calculation example (Pro):**
+
 - Monthly: €8
 - 1 Year: €8 × 12 × 0.95 = €91.20
 - 2 Years: €8 × 12 × 2 × 0.92 = €176.64
 - 4 Years: €8 × 12 × 4 × 0.90 = €345.60
 
 #### Billing & Quotas
+
 - Monthly quotas reset on billing anniversary
 - Upfront payment for multi-year commitments (unless recurring subscription configured)
 - PayPal Checkout for one-time + PayPal Subscriptions for recurring
 
 ### 3.8 PayPal Integration
+
 - **Checkout flow** – Secure order creation, user approval, server-side capture
 - **Webhook verification** – Validate PayPal events authentically
 - **Payment status** – Only activate paid features after webhook confirmation
@@ -136,11 +152,13 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - **Sandbox + production** – Support both environments via env vars
 
 ### 3.9 Email Integration (Resend)
+
 - **Templates** – Welcome, email verification, password reset, payment success, payment failure, subscription activation, subscription expiration, monthly limit reached, account security alert
 - **Sender domain** – Verified Pixora brand domain
 - **API key** – Server-side only, never exposed to frontend
 
 ### 3.10 Admin Dashboard
+
 - **Authentication** – Role-based access control, server-side authorization, no frontend elevation
 - **Overview tab** – Total users, active users, new registrations, total conversions, images generated, words processed, subscription breakdown (Free/Starter/Pro/Business), revenue, failed payments
 - **User management** – List/search/filter users, view profiles, edit details, update subscriptions, suspend/reactivate/delete accounts
@@ -149,6 +167,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - **Security** – No access to passwords; admin cannot retrieve auth credentials
 
 ### 3.11 Account Settings
+
 - Update first/last name
 - Change email (verified process)
 - Change password
@@ -159,17 +178,20 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Log out all sessions (if supported by Supabase)
 
 ### 3.12 Internationalization
+
 - **Hand-translated (6 core)** – English, Bengali, Hindi, Spanish, French, German
 - **Auto-translated fallback** – All other languages via DeepL API (50+ total)
 - **Language selector** – In top navigation bar
 - **Preference storage** – User locale saved in profiles table
 
 ### 3.13 Theme Support
+
 - **Light mode** – Clean white backgrounds, dark text
 - **Dark mode** – Dark backgrounds, light text
 - **Theme toggle** – In top navigation bar, persisted to user profile
 
 ### 3.14 Design Direction
+
 - **Inspiration** – Apple: minimalist, premium, clean, smooth, typography-focused
 - **Color palette** – Neutral grays, accent color (to be defined in DESIGN.md), no generic gradients
 - **Typography** – San-serif, readable hierarchy, consistent spacing
@@ -182,6 +204,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 ## 4. Technical Constraints & Decisions
 
 ### Stack (User's Choice)
+
 - **Frontend** – Next.js (latest), React, TypeScript, Tailwind CSS, shadcn/ui, Lucide icons
 - **Backend** – Next.js API routes
 - **Database** – Supabase PostgreSQL with Row Level Security (RLS)
@@ -197,6 +220,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - **Hosting** – InfinityFree (current), Supabase managed, Resend managed
 
 ### Database Tables (Sketch)
+
 - **auth.users** (Supabase native)
 - **profiles** – id, first_name, last_name, date_of_birth, preferred_language, theme, created_at, updated_at
 - **user_roles** – id, user_id, role (admin, user), created_at
@@ -207,6 +231,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - **admin_audit_logs** – id, admin_id, action, target_type, target_id, details, created_at
 
 ### Security Decisions
+
 - **Password hashing** – Delegated to Supabase Auth (never store plain-text or manual hashes)
 - **RLS policies** – Users can read/update only their own data; admins verified server-side
 - **API protection** – Middleware to verify session/role before sensitive endpoints
@@ -215,6 +240,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - **Environment variables** – Service-role key, PayPal secrets, Resend key, Turnstile secret never exposed to browser
 
 ### Image Rendering Strategy
+
 - **Client-side rendering** – Use HTML Canvas API to render text
 - **Font** – Monospaced (e.g., Monaco, Courier New, with fallbacks)
 - **Dimensions** – Automatically calculate based on text length and line-wrap
@@ -222,6 +248,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - **Export** – Convert Canvas to PNG blob, upload to Supabase Storage
 
 ### Internationalization Strategy
+
 - **Approach** – Use next-intl for UI strings + DeepL API for dynamic fallback
 - **Core languages** – English, Bengali, Hindi, Spanish, French, German (hand-translated JSON files)
 - **Fallback** – If user's locale not in core 6, use DeepL to auto-translate core English strings
@@ -232,6 +259,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 ## 5. Implementation Phases
 
 ### Phase 1: Project Setup & Design System
+
 - Initialize Next.js project
 - Configure Tailwind CSS + shadcn/ui
 - Create DESIGN.md with Apple-inspired color palette, typography, spacing tokens
@@ -239,6 +267,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Create project structure (app/, components/, lib/, public/)
 
 ### Phase 2: Public Website
+
 - Build responsive navigation (logo, links, language selector, light/dark toggle, Login/Get Started CTA)
 - Build landing page (hero, features, demo section, supported platforms, pricing teaser, FAQ teaser, footer)
 - Build Features, How It Works, Pricing, FAQ, Contact pages
@@ -246,6 +275,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Build Login, Sign Up, Forgot Password pages
 
 ### Phase 3: Authentication & Database
+
 - Set up Supabase project and database
 - Create database migrations (profiles, roles, subscriptions, plans, conversions, payments, audit logs)
 - Configure RLS policies
@@ -255,11 +285,13 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Implement logout
 
 ### Phase 4: User Dashboard
+
 - Build dashboard layout (sidebar navigation, responsive)
 - Build Overview tab (welcome, plan info, usage display, recent conversions)
 - Build Account Settings tab (profile edit, language, theme, subscription view, delete account)
 
 ### Phase 5: Core Feature – Text to Image Conversion
+
 - Build Paste Words interface (large text input, word/char counter, clear/send buttons)
 - Implement HTML Canvas-based text rendering (12px font, monospaced, character-per-line maximization)
 - Implement multi-page splitting logic (detect overflow, create sequential PNGs)
@@ -270,12 +302,14 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Implement loading state
 
 ### Phase 6: Conversion History
+
 - Build History page (searchable list, filters, pagination)
 - Implement per-record actions (view, download, copy, delete)
 - Implement search by text content, date, word count
 - Implement private storage access via signed URLs
 
 ### Phase 7: Embedded AI Playground (Test Feature)
+
 - Design sandboxed iframe component
 - Implement temporary API key input (Claude or ChatGPT)
 - Implement image upload to AI model
@@ -283,6 +317,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Test security model (no key persistence)
 
 ### Phase 8: Subscription & Payments
+
 - Build Pricing page with discount selector (1/2/4 year options)
 - Integrate PayPal Checkout for one-time payments
 - Implement PayPal Subscriptions for recurring billing
@@ -292,12 +327,14 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Build subscription management page (view active plan, upgrade/downgrade, payment history)
 
 ### Phase 9: Email Integration
+
 - Set up Resend API credentials
 - Create email templates (welcome, verification, password reset, payment success, payment failure, subscription alerts)
 - Implement transactional email triggers
 - Test email delivery
 
 ### Phase 10: Admin Dashboard
+
 - Implement admin authentication & role check
 - Build Admin Overview tab (metrics dashboard)
 - Build User Management tab (list, search, edit, suspend, delete)
@@ -305,6 +342,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Implement audit logging for admin actions
 
 ### Phase 11: Internationalization
+
 - Set up next-intl or i18next
 - Create JSON translation files for 6 core languages
 - Integrate DeepL API for fallback auto-translation
@@ -312,6 +350,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Test all UI text in multiple languages
 
 ### Phase 12: Testing & QA
+
 - Write unit tests (auth validation, quota calculation, image splitting logic)
 - Write integration tests (registration flow, payment flow, conversion flow)
 - Write E2E tests (user signup → conversion → payment flow)
@@ -320,6 +359,7 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 - Cross-browser and mobile testing
 
 ### Phase 13: Deployment & Launch
+
 - Configure Vercel deployment
 - Set up production environment variables
 - Set up PayPal production credentials (from user)
@@ -333,7 +373,9 @@ Primary metric: **User activity volume**—words processed per account monthly, 
 ## 6. What's Left to the Builder
 
 ### Credentials & External Setup
+
 The builder will need to obtain and configure the following (user provides credentials):
+
 - **Supabase:** Project URL, anon key, service-role key
 - **Resend:** API key, verified sender domain
 - **PayPal:** Client ID, Client Secret, Webhook ID (both sandbox and production)
@@ -341,17 +383,20 @@ The builder will need to obtain and configure the following (user provides crede
 - **DeepL API:** API key (for auto-translation fallback)
 
 ### Design Refinements (Pending)
+
 - **DESIGN.md:** Exact color palette, typography scale, spacing system (Apple-inspired to be defined)
 - **Branding assets:** Logo, favicon, email templates styling
 - **Visual mockups:** Landing page, dashboard layouts (if user wants to review before build)
 
 ### Business Logic Decisions (Pending)
+
 - **Free tier support costs:** Budget for support/hosting for free users
 - **Data retention policy:** How long to keep deleted user data in backups
 - **Refund policy:** After PayPal charges, what's the refund window
 - **Support channels:** Email, Discord, Zendesk, or other?
 
 ### Optional Enhancements (Future)
+
 - Dark mode refinements for admin dashboard
 - Mobile app (iOS/Android) via React Native or Flutter
 - API for third-party integrations
@@ -376,6 +421,7 @@ The builder will need to obtain and configure the following (user provides crede
 ## 8. Approval Checklist
 
 **User must approve before build starts:**
+
 - [ ] Full scope and feature list
 - [ ] Pricing model (€0, €3, €8, €18)
 - [ ] Phases 1–13 sequencing
