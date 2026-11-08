@@ -70,6 +70,7 @@ See `DESIGN.md` for comprehensive design tokens, component guidelines, and acces
 - **Payments:** PayPal Checkout & Subscriptions
 - **Email:** Resend
 - **CAPTCHA:** Cloudflare Turnstile
+- **Translation:** DeepL API
 - **Deployment:** Vercel
 
 ## License
