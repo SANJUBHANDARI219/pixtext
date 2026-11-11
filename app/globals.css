@@ -8,19 +8,24 @@
   }
 
   body {
-    @apply bg-white text-gray-900 font-sans;
+    @apply bg-white text-gray-900;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
   }
 
   h1 {
-    @apply text-2xl font-bold;
+    @apply text-5xl font-bold;
   }
 
   h2 {
-    @apply text-xl font-semibold;
+    @apply text-3xl font-bold;
   }
 
   h3 {
-    @apply text-lg font-semibold;
+    @apply text-2xl font-semibold;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
   }
 
   button {
