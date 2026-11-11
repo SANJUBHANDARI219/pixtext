@@ -1,3 +1,5 @@
+
+
 # PixText
 
 Convert written text into compact, machine-readable PNG images optimized for multimodal AI models.
@@ -44,7 +46,7 @@ Convert written text into compact, machine-readable PNG images optimized for mul
 
 See `DESIGN.md` for comprehensive design tokens, component guidelines, and accessibility standards.
 
-## Implementation Phases
+## 
 
 - Phase 1: ✅ Project Setup & Design System
 - Phase 2: Public Website
